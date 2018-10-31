@@ -28,7 +28,7 @@ while True:
     if tempF > threshold and status == "CLOSED":
         print("opening")
         ghs.servo.move(+1)
-    elif temp < threshold and status == "OPEN":
+    elif tempF < threshold and status == "OPEN":
         print("closing")
         ghs.servo.move(-1)
         
