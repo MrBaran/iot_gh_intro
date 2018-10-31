@@ -6,14 +6,14 @@ print("IoT Greenhouse.\n")
 name = "your house name here"
 
 ghs = IoTGreenhouseService()
-gh = ghs.green_house
+gh = ghs.greenhouse
 gh.name = name
 
 print("House Number: " + gh.house_number)
 
 tempF = ghs.temperature.get_inside_temp_F()
 print("House temperature is " + str(tempF))
-state = gh.servo.get_status()
+state = ghs.servo.get_status()
 print("House state is " + state)
 
 ghs.web_service.post_greenhouse()
@@ -23,14 +23,14 @@ print("Threshold set to " + str(threshold))
 
 while True:
     tempF = ghs.temperature.get_inside_temp_F()
-    status = gh.servo.get_status()
+    status = ghs.servo.get_status()
     print("temp = " + str(tempF))
     if tempF > threshold and status == "CLOSED":
         print("opening")
-        gh.servo.move(+1)
+        ghs.servo.move(+1)
     elif temp < threshold and status == "OPEN":
         print("closing")
-        servo.move(-1)
+        ghs.servo.move(-1)
         
     #part 2
     fan_status = ghs.fan.get_status()
@@ -43,7 +43,7 @@ while True:
     
     #part 3
     #use white led to simulate heater
-    heater_status = ghs.lamps.white.get_statu()
+    heater_status = ghs.lamps.white.get_status()
     if tempF < threshold - 5 and heater_status == "OFF":
         print("Activating heater.")
         ghs.lamps.white.on()
