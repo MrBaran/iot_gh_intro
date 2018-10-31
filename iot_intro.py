@@ -47,7 +47,7 @@ while True:
     if tempF < threshold - 5 and heater_status == "OFF":
         print("Activating heater.")
         ghs.lamps.white.on()
-    if tempF > threshold - 5 and heater_status == "ON":
+    elif tempF > threshold - 5 and heater_status == "ON":
         print("Heater is off.")
         ghs.lamps.white.off()
 
