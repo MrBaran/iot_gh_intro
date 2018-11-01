@@ -7,7 +7,7 @@ name = "your house name here"
 
 ghs = IoTGreenhouseService()
 ghs.greenhouse.name = name
-number = ghs.greenhouse.number
+number = ghs.greenhouse.house_number
 
 print("House Number: " + number)
 
