@@ -18,7 +18,7 @@ print("House state is " + state)
 
 ghs.web_service.post_greenhouse()
 
-threshold = tempF + 2
+threshold = tempF + 5
 print("Threshold set to " + str(threshold))
 
 while True:
@@ -47,10 +47,11 @@ while True:
     if tempF < threshold - 5 and heater_status == "OFF":
         print("Activating heater.")
         ghs.lamps.white.on()
-    elif tempF > threshold - 5 and heater_status == "ON":
+    if tempF > threshold - 5 and heater_status == "ON":
         print("Heater is off.")
         ghs.lamps.white.off()
 
     ghs.web_service.post_greenhouse()
     sleep(5)
+
 
