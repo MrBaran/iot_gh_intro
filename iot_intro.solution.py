@@ -27,10 +27,10 @@ while True:
     print("temp = " + str(tempF))
     if tempF > threshold and status == "CLOSED":
         print("opening")
-        ghs.servo.move(+1)
+        ghs.servo.move(1)
     elif tempF < threshold and status == "OPEN":
         print("closing")
-        ghs.servo.move(-1)
+        ghs.servo.move(0)
         
     #part 2
     fan_status = ghs.fan.get_status()
